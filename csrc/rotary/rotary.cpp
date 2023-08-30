@@ -39,3 +39,7 @@ void apply_rotary(const torch::Tensor x1, const torch::Tensor x2,
 PYBIND11_MODULE(TORCH_EXTENSION_NAME, m) {
   m.def("apply_rotary", &apply_rotary, "Apply rotary embedding");
 }
+
+TORCH_LIBRARY(rotary_emb, m) {
+  m.def("apply_rotary", apply_rotary);
+}
